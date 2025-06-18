@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: telegram-attendance-bot
+    env: python
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+      playwright install
+    startCommand: python bot.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10
