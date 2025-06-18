@@ -1,0 +1,111 @@
+2025-06-18 15:48:57,897 - INFO - __main__ - 🤖 Bot is starting up...
+2025-06-18 15:48:58,803 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-18 15:48:58,979 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-18 15:48:58,980 - INFO - telegram.ext.Application - Application started
+2025-06-18 15:49:02,815 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 15:49:02,816 - INFO - __main__ - /seeattendance called by user 6377327225
+2025-06-18 15:49:03,240 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 15:49:13,058 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 15:49:22,248 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 15:49:22,249 - INFO - __main__ - Attendance data sent to user 6377327225
+2025-06-18 15:49:23,249 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 15:49:33,447 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 15:49:38,818 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 15:49:38,819 - INFO - telegram.ext.Application - Application is stopping. This might take a moment.
+2025-06-18 15:49:38,819 - INFO - telegram.ext.Application - Application.stop() complete
+2025-06-18 15:49:38,837 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Task-1' coro=<schedule_notifications() running at /home/gearhead/Desktop/AISongs/bot.py:153> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-06-18 16:07:57,747 - INFO - __main__ - 🤖 Bot is running...
+2025-06-18 16:07:58,993 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-18 16:07:59,407 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-18 16:07:59,409 - INFO - telegram.ext.Application - Application started
+2025-06-18 16:08:10,258 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:08:15,160 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:08:16,296 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:08:16,297 - ERROR - telegram.ext.Application - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "/home/gearhead/Desktop/AISongs/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1298, in process_update
+    await coroutine
+  File "/home/gearhead/Desktop/AISongs/venv/lib/python3.12/site-packages/telegram/ext/_handlers/basehandler.py", line 158, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/gearhead/Desktop/AISongs/bot.py", line 115, in see_attendance
+    in_time, out_time = await get_attendance_times(state_path, day_offset=0)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_attendance_times() got an unexpected keyword argument 'day_offset'
+2025-06-18 16:08:25,617 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:08:35,958 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:08:46,192 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:08:56,370 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:06,672 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:16,950 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:27,148 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:27,459 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:37,903 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:48,108 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:09:58,378 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:10:08,622 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:10:19,101 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:10:24,178 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:10:24,179 - INFO - telegram.ext.Application - Application is stopping. This might take a moment.
+2025-06-18 16:10:24,179 - INFO - telegram.ext.Application - Application.stop() complete
+2025-06-18 16:10:39,070 - INFO - __main__ - 🤖 Bot is running...
+2025-06-18 16:10:39,951 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-18 16:10:40,259 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-18 16:10:40,260 - INFO - telegram.ext.Application - Application started
+2025-06-18 16:10:46,297 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:10:47,274 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:10:56,491 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:04,133 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:11:06,676 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:16,875 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:27,078 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:37,496 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:48,038 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:11:58,480 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:12:08,932 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:12:19,117 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:12:29,514 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:12:39,841 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:12:50,196 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:00,640 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:10,883 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:21,120 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:31,449 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:41,995 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:13:52,552 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:02,792 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:06,396 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Application:8087115073:update_fetcher' coro=<Application._update_fetcher() running at /home/gearhead/Desktop/AISongs/venv/lib/python3.12/site-packages/telegram/ext/_application.py:1221> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-06-18 16:14:07,998 - INFO - __main__ - 🤖 Bot is running...
+2025-06-18 16:14:08,746 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-18 16:14:09,113 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-18 16:14:09,114 - INFO - telegram.ext.Application - Application started
+2025-06-18 16:14:20,192 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:25,717 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:26,639 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:14:35,913 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:42,396 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:14:46,107 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:50,050 - WARNING - __main__ - Attempt 1 failed for user 6377327225: Page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://testmaq.sharepoint.com/myspace/Pages/MySpace.aspx", waiting until "load"
+
+2025-06-18 16:14:50,662 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:14:50,663 - INFO - telegram.ext.Application - Application is stopping. This might take a moment.
+2025-06-18 16:14:50,982 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Application:8087115073:update_fetcher' coro=<Application._update_fetcher() running at /home/gearhead/Desktop/AISongs/venv/lib/python3.12/site-packages/telegram/ext/_application.py:1221> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2025-06-18 16:14:53,759 - INFO - __main__ - 🤖 Bot is running...
+2025-06-18 16:14:54,600 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-18 16:14:54,911 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-18 16:14:54,913 - INFO - telegram.ext.Application - Application started
+2025-06-18 16:15:05,117 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:15:06,277 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:15:15,295 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:15:22,493 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-18 16:15:25,730 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:15:34,333 - INFO - __main__ - ⏰ Scheduled evening alert at 17:11 for user 6377327225
+2025-06-18 16:15:35,910 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:15:46,216 - INFO - httpx - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-18 16:15:51,282 - ERROR - asyncio - Task was destroyed but it is pending!
+task: <Task pending name='Task-34' coro=<schedule_dynamic_notification.<locals>.send_later() done, defined at /home/gearhead/Desktop/AISongs/bot.py:143> wait_for=<Future pending cb=[Task.task_wakeup()]>>

@@ -1,1 +1,5 @@
 /venv
+/employee_states
+.env
+/storage
+__pycache__/

@@ -1,0 +1,8 @@
+Approach
+
+Every Hour between(9AM to 6AM) run the Agent 
+if the in time is blank for current date then don't send notifications
+Find the In time from the website then send the data through notifications
+if you find the in time from the website then stop every hour time run 
+and read that time and add 8 hours from that in time then re send the notification of informating that your work time is over 
+Note 

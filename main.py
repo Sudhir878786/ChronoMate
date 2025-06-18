@@ -1,9 +1,6 @@
 from agent import get_attendance_times
 import requests
 
-# Replace with your Telegram bot token and chat ID
-BOT_TOKEN = '8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI'
-CHAT_ID = '6377327225'
 
 def send_telegram_message(message):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
