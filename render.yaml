@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: telegram-attendance-bot
+    name: attendance-bot
     env: python
     buildCommand: |
       pip install --upgrade pip
