@@ -1,45 +1,38 @@
 import os
-from dotenv import load_dotenv
+import re
 import asyncio
 import logging
-import re
-from datetime import datetime,timedelta
+from datetime import datetime, timedelta
+
+from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder, CommandHandler, ContextTypes,
     MessageHandler, filters, ConversationHandler
 )
-
-from agent import get_attendance_times  # async function now
 from playwright.async_api import async_playwright
 
-# --- Logging Setup ---
+from agent import get_attendance_times  # Ensure this is async
+
+# --- Load Env ---
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+os.makedirs("employee_states", exist_ok=True)
+STATE_DIR = "employee_states"
+
+# --- Logging ---
 logging.basicConfig(
-    format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+    format="%(asctime)s - %(levelname)s - %(message)s",
     level=logging.INFO,
-    filename="bot.log",  # comment this line if you only want console logs
+    filename="bot.log",
     filemode="a"
 )
 logger = logging.getLogger(__name__)
 
-# --- Configuration ---
-load_dotenv()
-TOKEN = os.getenv("BOT_TOKEN") # replace with your bot token
-os.makedirs("employee_states", exist_ok=True)
+# --- Conversation States ---
+EMAIL = 0
 
-STATE_DIR = "employee_states"
-EMAIL, VERIFY = range(2)
-os.makedirs(STATE_DIR, exist_ok=True)
-
-# --- Handlers ---
-# --- Logging ---
-logging.basicConfig(
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
-logger = logging.getLogger(__name__)
-
-# --- Helpers ---
+# --- Helper ---
 def parse_time_string(time_str):
     match = re.match(r"(\d{1,2}):(\d{2})", time_str)
     if match:
@@ -47,7 +40,7 @@ def parse_time_string(time_str):
         return datetime.now().replace(hour=hour, minute=minute, second=0, microsecond=0)
     return None
 
-# --- Handlers ---
+# --- Command Handlers ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("👋 Welcome! Use /login to authenticate and receive attendance updates.")
 
@@ -56,17 +49,15 @@ async def login(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return EMAIL
 
 async def receive_email(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    from playwright.async_api import async_playwright
-
     email = update.message.text
     context.user_data['email'] = email
-    await update.message.reply_text("🔐 Starting login in browser...")
+    await update.message.reply_text("🔐 Launching browser for login... Please complete the steps within 60 seconds.")
 
     user_id = str(update.effective_user.id)
     state_path = os.path.join(STATE_DIR, f"{user_id}_state.json")
 
     playwright = await async_playwright().start()
-    browser = await playwright.chromium.launch(headless=False)
+    browser = await playwright.chromium.launch(headless=True)
     context_pw = await browser.new_context()
     page = await context_pw.new_page()
 
@@ -80,25 +71,31 @@ async def receive_email(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await page.wait_for_selector("div.displaySign", timeout=10000)
             number = await page.inner_text("div.displaySign")
             await update.message.reply_text(f"📲 Enter this number `{number.strip()}` in your Authenticator app.")
-        except:
-            await update.message.reply_text("⚠️ Couldn't find Authenticator number. Proceed manually.")
+        except Exception:
+            await update.message.reply_text("⚠️ Authenticator prompt not detected. Please continue manually.")
 
-        await update.message.reply_text("⏳ Waiting for approval...")
-        await page.wait_for_timeout(10000)
-
+        await update.message.reply_text("⏳ Waiting for approval... You have 60 seconds.")
         try:
-            await page.wait_for_selector("#idSIButton9", timeout=10000)
-            await page.click("#idSIButton9")
+            await page.wait_for_selector('input[id="idSIButton9"]', timeout=60000)
+            await page.click('input[id="idSIButton9"]')
             await update.message.reply_text("☑️ Clicked 'Yes' to stay signed in.")
-        except:
-            pass
+        except Exception:
+            await update.message.reply_text("❌ Login timeout or 'Yes' button not found. Please try again.")
+            raise Exception("Timeout waiting for approval.")
 
         await page.wait_for_timeout(5000)
         await context_pw.storage_state(path=state_path)
-        await update.message.reply_text("✅ Login successful! Session saved.")
-        await schedule_dynamic_notification(context.application, user_id, state_path)
+
+        if os.path.exists(state_path) and os.path.getsize(state_path) > 1000:
+            await update.message.reply_text("✅ Login successful! Session saved.")
+            await schedule_dynamic_notification(context.application, user_id, state_path)
+        else:
+            await update.message.reply_text("❌ Session not saved. Please try again.")
+            raise Exception("Session file not written properly.")
+
     except Exception as e:
-        await update.message.reply_text(f"❌ Login failed: {e}")
+        logger.error(f"[LoginError] User {user_id}: {e}")
+        await update.message.reply_text("❌ Login failed. Please ensure you completed the login in time and try again.")
     finally:
         await browser.close()
         await playwright.stop()
@@ -112,13 +109,12 @@ async def see_attendance(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = str(update.effective_user.id)
     state_path = os.path.join(STATE_DIR, f"{user_id}_state.json")
 
-    if not os.path.exists(state_path):
-        await update.message.reply_text("❌ You need to log in first using /login.")
+    if not os.path.exists(state_path) or os.path.getsize(state_path) < 1000:
+        await update.message.reply_text("❌ You need to log in again. Your session file is missing or invalid.")
         return
 
     await update.message.reply_text("🔍 Checking today's attendance...")
     in_time, out_time = await get_attendance_times(state_path)
-
 
     if in_time != "--:--":
         await update.message.reply_text(f"🟢 In-Time: `{in_time}`\n🔴 Out-Time: `{out_time}`", parse_mode="Markdown")
@@ -127,6 +123,15 @@ async def see_attendance(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("ℹ️ In-time not yet available. We will keep checking.")
         await schedule_dynamic_notification(context.application, user_id, state_path)
 
+async def logout(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = str(update.effective_user.id)
+    state_path = os.path.join(STATE_DIR, f"{user_id}_state.json")
+    if os.path.exists(state_path):
+        os.remove(state_path)
+        await update.message.reply_text("🔓 You have been logged out. Use /login to sign in again.")
+    else:
+        await update.message.reply_text("ℹ️ No active session found.")
+
 # --- Scheduler ---
 async def schedule_dynamic_notification(app, user_id, state_path):
     now = datetime.now()
@@ -134,7 +139,7 @@ async def schedule_dynamic_notification(app, user_id, state_path):
     if now < first_check:
         await asyncio.sleep((first_check - now).total_seconds())
 
-    max_attempts = 6  # Retry every 2 hours up to 12 hrs
+    max_attempts = 6
     for attempt in range(max_attempts):
         try:
             in_time_str, _ = await get_attendance_times(state_path)
@@ -158,11 +163,11 @@ async def schedule_dynamic_notification(app, user_id, state_path):
         except Exception as e:
             logger.warning(f"Attempt {attempt+1} failed for user {user_id}: {e}")
 
-        await asyncio.sleep(2 * 60 * 60)  # 2 hours
+        await asyncio.sleep(2 * 60 * 60)
 
     logger.error(f"❌ Failed to find in-time after {max_attempts} attempts for user {user_id}")
 
-# --- App Setup ---
+# --- Entry Point ---
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
 
@@ -174,6 +179,7 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("seeattendance", see_attendance))
+    app.add_handler(CommandHandler("logout", logout))
     app.add_handler(conv_handler)
 
     logger.info("🤖 Bot is running...")

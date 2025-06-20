@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 def get_previous_day():
     today = datetime.today()
-    previous = today - timedelta(days=1)
+    previous = today - timedelta(days=0)
     return str(previous.day)
 
 async def get_attendance_times(state_path):
