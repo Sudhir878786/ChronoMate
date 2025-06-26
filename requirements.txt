@@ -3,3 +3,4 @@ playwright
 aiofiles
 python-dotenv
 greenlet
+flask

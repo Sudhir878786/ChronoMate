@@ -1,15 +1,11 @@
-nohup: ignoring input
-Traceback (most recent call last):
-  File "/home/gearhead/Desktop/AISongs/bot.py", line 7, in <module>
-    from dotenv import load_dotenv
-ModuleNotFoundError: No module named 'dotenv'
-2025-06-20 23:14:40,360 - INFO - 🤖 Bot is running...
-2025-06-20 23:14:41,697 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
-2025-06-20 23:14:42,590 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
-2025-06-20 23:14:42,592 - INFO - Application started
-2025-06-20 23:14:43,315 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
-2025-06-20 23:14:43,746 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
-2025-06-20 23:14:44,114 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
-2025-06-20 23:14:48,824 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
-2025-06-20 23:14:48,825 - INFO - Application is stopping. This might take a moment.
-2025-06-20 23:14:48,825 - INFO - Application.stop() complete
+2025-06-26 19:19:45,453 - INFO - 🤖 Bot is running...
+2025-06-26 19:19:46,886 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getMe "HTTP/1.1 200 OK"
+2025-06-26 19:19:47,109 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/deleteWebhook "HTTP/1.1 200 OK"
+2025-06-26 19:19:47,110 - INFO - Application started
+2025-06-26 19:19:57,764 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-26 19:20:08,009 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-26 19:20:10,797 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-26 19:20:11,804 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/sendMessage "HTTP/1.1 200 OK"
+2025-06-26 19:20:19,383 - INFO - HTTP Request: POST https://api.telegram.org/bot8087115073:AAEb_80xgntmH4k2r2JutrTWDHGYCJIMEwI/getUpdates "HTTP/1.1 200 OK"
+2025-06-26 19:20:19,383 - INFO - Application is stopping. This might take a moment.
+2025-06-26 19:20:19,383 - INFO - Application.stop() complete
